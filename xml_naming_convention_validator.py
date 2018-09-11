@@ -18,12 +18,18 @@ class xml_naming_convention_validator:
             print(firmware_matchObj.group(), name)
             return True
 
+        # Unsupported naming conventions
+        print(name + " is not yet supported")
+        return False
+
     def test_NOTE(self, name):
         # Banknote Acceptor
         bna_matchObj = re.search(r'(banknote acceptor)', name, re.M | re.I)
         if bna_matchObj:
             print(bna_matchObj.group(), name)
             return True
+        else:
+            return False
 
     def test_TICK(self, name):
         # Ticket Printer
@@ -31,6 +37,8 @@ class xml_naming_convention_validator:
         if ticket_printer_matchObj:
             print(ticket_printer_matchObj.group(), name)
             return True
+        else:
+            return False
 
     def test_MACH(self, name):
         # Machine
@@ -38,6 +46,8 @@ class xml_naming_convention_validator:
         if machine_matchObj:
             print(machine_matchObj.group(), name)
             return True
+        else:
+            return False
 
     def test_MNTR(self, name):
         # Monitor
@@ -45,6 +55,8 @@ class xml_naming_convention_validator:
         if monitor_matchObj:
             print(monitor_matchObj.group(), name)
             return True
+        else:
+            return False
 
     def test_TCHS(self, name):
         # Touch Screen
@@ -52,6 +64,8 @@ class xml_naming_convention_validator:
         if touch_screen_matchObj:
             print(touch_screen_matchObj.group(), name)
             return True
+        else:
+            return False
             
     def test(self, x):
         return {
@@ -69,7 +83,7 @@ class xml_naming_convention_validator:
             return(fn(aname))
         else:
             print("No tests implemented for: " + atype)
-            return False
+        return False
 
     def test_requirements(self, x):
         return {
@@ -88,7 +102,7 @@ class xml_naming_convention_validator:
             return False
 
     def suggest_naming_convention(self, atype, aname):
-        suggested_name = ""
+        suggested_name = "This requires a new name"
 
         return suggested_name
 
